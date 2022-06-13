@@ -1,0 +1,29 @@
+{"backend_state":"running","connection_file":"/projects/d33fe5ca-9047-433d-bb1f-d4d7dfb115ca/.local/share/jupyter/runtime/kernel-d01904a2-69f4-4667-a85d-bd11f7ef4c65.json","kernel":"nlp_env","kernel_error":"","kernel_state":"idle","kernel_usage":{"cpu":0,"memory":0},"metadata":{"language_info":{"codemirror_mode":{"name":"ipython","version":3},"file_extension":".py","mimetype":"text/x-python","name":"python","nbconvert_exporter":"python","pygments_lexer":"ipython3","version":"3.8.13"}},"trust":true,"type":"settings"}
+{"cell_type":"code","end":1655144642356,"exec_count":2,"id":"fd1399","input":"import datetime as dt \n#from psaw import PushshiftAPI\nfrom pmaw import PushshiftAPI\n#import praw\nimport pandas as pd","kernel":"nlp_env","pos":0,"start":1655144642354,"state":"done","type":"cell"}
+{"cell_type":"code","end":1655145047243,"exec_count":17,"id":"c94c01","input":"posts_df.columns","kernel":"nlp_env","output":{"0":{"data":{"text/plain":"Index(['all_awardings', 'archived', 'associated_award', 'author',\n       'author_flair_background_color', 'author_flair_css_class',\n       'author_flair_richtext', 'author_flair_template_id',\n       'author_flair_text', 'author_flair_text_color', 'author_flair_type',\n       'author_fullname', 'author_patreon_flair', 'author_premium', 'body',\n       'body_sha1', 'can_gild', 'collapsed', 'collapsed_because_crowd_control',\n       'collapsed_reason', 'collapsed_reason_code', 'comment_type',\n       'controversiality', 'created_utc', 'distinguished', 'gilded',\n       'gildings', 'id', 'is_submitter', 'link_id', 'locked', 'no_follow',\n       'parent_id', 'permalink', 'retrieved_utc', 'score', 'score_hidden',\n       'send_replies', 'stickied', 'subreddit', 'subreddit_id',\n       'subreddit_name_prefixed', 'subreddit_type', 'top_awarded_type',\n       'total_awards_received', 'treatment_tags', 'unrepliable_reason',\n       'author_cakeday'],\n      dtype='object')"},"exec_count":17}},"pos":2,"start":1655145047237,"state":"done","type":"cell"}
+{"cell_type":"code","end":1655147174795,"exec_count":20,"id":"d18530","input":"\nbefore = int(dt.datetime(2022,6,10,0,0).timestamp())\nafter = int(dt.datetime(2022,5,10,0,0).timestamp())\napi = PushshiftAPI()\nsubreddit=\"conservative\"\nlimit=100000\nposts = api.search_comments(subreddit=subreddit, limit=limit, before=before, after=after)\nposts_df = pd.DataFrame(posts)\n","kernel":"nlp_env","pos":1,"start":1655146147077,"state":"done","type":"cell"}
+{"cell_type":"code","end":1655148722474,"exec_count":36,"id":"39180a","input":"posts_df[posts_df['score']>5].shape","kernel":"nlp_env","output":{"0":{"data":{"text/plain":"(14, 49)"},"exec_count":36}},"pos":3,"scrolled":true,"start":1655148722466,"state":"done","type":"cell"}
+{"cell_type":"code","end":1655148862318,"exec_count":39,"id":"05d65b","input":"posts_df.to_csv(path+'aryaman-conservative-100k.csv')","kernel":"nlp_env","pos":5,"start":1655148860513,"state":"done","type":"cell"}
+{"cell_type":"code","exec_count":15,"id":"4e0b64","input":"posts_df['controversiality']","kernel":"nlp_env","output":{"0":{"data":{"text/plain":"0"},"exec_count":15}},"pos":4,"state":"done","type":"cell"}
+{"end":1655148621087,"exec_count":31,"id":"e55726","input":"posts_df['score'].unique()","kernel":"nlp_env","output":{"0":{"data":{"text/plain":"array([  1,   2,   3,   4,   0,   5,  -1,   6,   9,  12,   7,  -5, -11,\n        11,  -2,  19,  25,  -7])"},"exec_count":31}},"pos":2.5,"start":1655148621078,"state":"done","type":"cell"}
+{"end":1655148692724,"exec_count":34,"id":"27ffe2","input":"import matplotlib.pyplot as plt \n\nplt.hist(posts_df['score'],bins=100)\nplt.show()","kernel":"nlp_env","output":{"0":{"data":{"image/png":"99d49befc818bb0abfd838ebde556156008015be","text/plain":"<Figure size 432x288 with 1 Axes>"},"metadata":{"needs_background":"light"}}},"pos":3.00390625,"start":1655148692487,"state":"done","type":"cell"}
+{"end":1655148831518,"exec_count":37,"id":"d60026","input":"pwd","kernel":"nlp_env","output":{"0":{"data":{"text/plain":"'/projects/d33fe5ca-9047-433d-bb1f-d4d7dfb115ca/SC22-BatchA-Blurred-Futures'"},"exec_count":37}},"pos":4.5,"start":1655148831509,"state":"done","type":"cell"}
+{"end":1655148850880,"exec_count":38,"id":"1fd429","input":"path='/projects/d33fe5ca-9047-433d-bb1f-d4d7dfb115ca/SC22-BatchA-Blurred-Futures/Data/'","kernel":"nlp_env","pos":4.75,"start":1655148850874,"state":"done","type":"cell"}
+{"id":"09bac9","input":"","pos":2.125,"type":"cell"}
+{"id":"2fac08","input":"","pos":2.25,"type":"cell"}
+{"id":"2fdb25","input":"","pos":3.0625,"type":"cell"}
+{"id":"6930da","input":"","pos":1.5,"type":"cell"}
+{"id":"87ab32","input":"","pos":0.5,"type":"cell"}
+{"id":"91fb1b","input":"","pos":6,"type":"cell"}
+{"id":"9538f6","input":"","pos":1.0625,"type":"cell"}
+{"id":"961c18","input":"","pos":3.125,"type":"cell"}
+{"id":"a0abfe","input":"","pos":3.5,"type":"cell"}
+{"id":"b1f1b6","input":"","pos":3.0078125,"type":"cell"}
+{"id":"b559d8","input":"","pos":1.25,"type":"cell"}
+{"id":"bc6782","input":"","pos":4.25,"type":"cell"}
+{"id":"d3cf07","input":"","pos":3.015625,"type":"cell"}
+{"id":"e926b0","input":"","pos":3.03125,"type":"cell"}
+{"id":"f36478","input":"","pos":1.125,"type":"cell"}
+{"id":"f4cd64","input":"","pos":3.25,"type":"cell"}
+{"id":0,"time":1655146028819,"type":"user"}
+{"last_load":1655144398072,"type":"file"}
