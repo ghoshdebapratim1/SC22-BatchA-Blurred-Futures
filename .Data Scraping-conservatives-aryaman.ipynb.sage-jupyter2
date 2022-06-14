@@ -1,29 +1,48 @@
-{"backend_state":"running","connection_file":"/projects/d33fe5ca-9047-433d-bb1f-d4d7dfb115ca/.local/share/jupyter/runtime/kernel-d01904a2-69f4-4667-a85d-bd11f7ef4c65.json","kernel":"nlp_env","kernel_error":"","kernel_state":"idle","kernel_usage":{"cpu":0,"memory":0},"metadata":{"language_info":{"codemirror_mode":{"name":"ipython","version":3},"file_extension":".py","mimetype":"text/x-python","name":"python","nbconvert_exporter":"python","pygments_lexer":"ipython3","version":"3.8.13"}},"trust":true,"type":"settings"}
-{"cell_type":"code","end":1655144642356,"exec_count":2,"id":"fd1399","input":"import datetime as dt \n#from psaw import PushshiftAPI\nfrom pmaw import PushshiftAPI\n#import praw\nimport pandas as pd","kernel":"nlp_env","pos":0,"start":1655144642354,"state":"done","type":"cell"}
-{"cell_type":"code","end":1655145047243,"exec_count":17,"id":"c94c01","input":"posts_df.columns","kernel":"nlp_env","output":{"0":{"data":{"text/plain":"Index(['all_awardings', 'archived', 'associated_award', 'author',\n       'author_flair_background_color', 'author_flair_css_class',\n       'author_flair_richtext', 'author_flair_template_id',\n       'author_flair_text', 'author_flair_text_color', 'author_flair_type',\n       'author_fullname', 'author_patreon_flair', 'author_premium', 'body',\n       'body_sha1', 'can_gild', 'collapsed', 'collapsed_because_crowd_control',\n       'collapsed_reason', 'collapsed_reason_code', 'comment_type',\n       'controversiality', 'created_utc', 'distinguished', 'gilded',\n       'gildings', 'id', 'is_submitter', 'link_id', 'locked', 'no_follow',\n       'parent_id', 'permalink', 'retrieved_utc', 'score', 'score_hidden',\n       'send_replies', 'stickied', 'subreddit', 'subreddit_id',\n       'subreddit_name_prefixed', 'subreddit_type', 'top_awarded_type',\n       'total_awards_received', 'treatment_tags', 'unrepliable_reason',\n       'author_cakeday'],\n      dtype='object')"},"exec_count":17}},"pos":2,"start":1655145047237,"state":"done","type":"cell"}
-{"cell_type":"code","end":1655147174795,"exec_count":20,"id":"d18530","input":"\nbefore = int(dt.datetime(2022,6,10,0,0).timestamp())\nafter = int(dt.datetime(2022,5,10,0,0).timestamp())\napi = PushshiftAPI()\nsubreddit=\"conservative\"\nlimit=100000\nposts = api.search_comments(subreddit=subreddit, limit=limit, before=before, after=after)\nposts_df = pd.DataFrame(posts)\n","kernel":"nlp_env","pos":1,"start":1655146147077,"state":"done","type":"cell"}
-{"cell_type":"code","end":1655148722474,"exec_count":36,"id":"39180a","input":"posts_df[posts_df['score']>5].shape","kernel":"nlp_env","output":{"0":{"data":{"text/plain":"(14, 49)"},"exec_count":36}},"pos":3,"scrolled":true,"start":1655148722466,"state":"done","type":"cell"}
-{"cell_type":"code","end":1655148862318,"exec_count":39,"id":"05d65b","input":"posts_df.to_csv(path+'aryaman-conservative-100k.csv')","kernel":"nlp_env","pos":5,"start":1655148860513,"state":"done","type":"cell"}
-{"cell_type":"code","exec_count":15,"id":"4e0b64","input":"posts_df['controversiality']","kernel":"nlp_env","output":{"0":{"data":{"text/plain":"0"},"exec_count":15}},"pos":4,"state":"done","type":"cell"}
-{"end":1655148692724,"exec_count":34,"id":"27ffe2","input":"import matplotlib.pyplot as plt \n\nplt.hist(posts_df['score'],bins=100)\nplt.show()","kernel":"nlp_env","output":{"0":{"data":{"image/png":"99d49befc818bb0abfd838ebde556156008015be","text/plain":"<Figure size 432x288 with 1 Axes>"},"metadata":{"needs_background":"light"}}},"pos":3.00390625,"start":1655148692487,"state":"done","type":"cell"}
-{"end":1655148831518,"exec_count":37,"id":"d60026","input":"pwd","kernel":"nlp_env","output":{"0":{"data":{"text/plain":"'/projects/d33fe5ca-9047-433d-bb1f-d4d7dfb115ca/SC22-BatchA-Blurred-Futures'"},"exec_count":37}},"pos":4.5,"start":1655148831509,"state":"done","type":"cell"}
-{"end":1655148850880,"exec_count":38,"id":"1fd429","input":"path='/projects/d33fe5ca-9047-433d-bb1f-d4d7dfb115ca/SC22-BatchA-Blurred-Futures/Data/'","kernel":"nlp_env","pos":4.75,"start":1655148850874,"state":"done","type":"cell"}
-{"end":1655156718527,"exec_count":40,"id":"e55726","input":"posts_df['score'].unique()","kernel":"nlp_env","output":{"0":{"data":{"text/plain":"array([  1,   2,   3,   4,   0,   5,  -1,   6,   9,  12,   7,  -5, -11,\n        11,  -2,  19,  25,  -7])"},"exec_count":40}},"pos":2.5,"start":1655156718523,"state":"done","type":"cell"}
-{"end":1655156781166,"exec_count":41,"id":"2fac08","input":"posts_df.score.value_counts()","kernel":"nlp_env","output":{"0":{"data":{"text/plain":" 1     99860\n 2        52\n 3        25\n 0        16\n 4        14\n 5         6\n-1         6\n 6         5\n 7         3\n-5         3\n-2         2\n 9         2\n 25        1\n 19        1\n 12        1\n 11        1\n-11        1\n-7         1\nName: score, dtype: int64"},"exec_count":41}},"pos":2.25,"start":1655156781163,"state":"done","type":"cell"}
-{"id":"09bac9","input":"","pos":2.125,"type":"cell"}
-{"id":"2fdb25","input":"","pos":3.0625,"type":"cell"}
-{"id":"6930da","input":"","pos":1.5,"type":"cell"}
-{"id":"87ab32","input":"","pos":0.5,"type":"cell"}
-{"id":"91fb1b","input":"","pos":6,"type":"cell"}
-{"id":"9538f6","input":"","pos":1.0625,"type":"cell"}
-{"id":"961c18","input":"","pos":3.125,"type":"cell"}
-{"id":"a0abfe","input":"","pos":3.5,"type":"cell"}
-{"id":"b1f1b6","input":"","pos":3.0078125,"type":"cell"}
-{"id":"b559d8","input":"","pos":1.25,"type":"cell"}
-{"id":"bc6782","input":"","pos":4.25,"type":"cell"}
-{"id":"d3cf07","input":"","pos":3.015625,"type":"cell"}
-{"id":"e926b0","input":"","pos":3.03125,"type":"cell"}
-{"id":"f36478","input":"","pos":1.125,"type":"cell"}
-{"id":"f4cd64","input":"","pos":3.25,"type":"cell"}
-{"id":0,"time":1655160735062,"type":"user"}
-{"last_load":1655144398072,"type":"file"}
+{"backend_state":"running","connection_file":"/projects/820ea3ac-497c-43fd-9cb7-abe34292faa8/.local/share/jupyter/runtime/kernel-dbcefea7-371d-471a-85e2-be0939440c64.json","kernel":"nlp_env","kernel_error":"","kernel_state":"idle","kernel_usage":{"cpu":0,"memory":0},"metadata":{"language_info":{"codemirror_mode":{"name":"ipython","version":3},"file_extension":".py","mimetype":"text/x-python","name":"python","nbconvert_exporter":"python","pygments_lexer":"ipython3","version":"3.8.13"}},"trust":true,"type":"settings"}
+{"cell_type":"code","end":1655231290243,"exec_count":5,"id":"09bac9","input":"pwd","kernel":"nlp_env","output":{"0":{"data":{"text/plain":"'/projects/820ea3ac-497c-43fd-9cb7-abe34292faa8/SC22-BatchA-Blurred-Futures'"},"exec_count":5}},"pos":11,"start":1655231290225,"state":"done","type":"cell"}
+{"cell_type":"code","end":1655231652533,"exec_count":11,"id":"e55726","input":"import pandas as pd\nposts_df = pd.read_csv('/projects/820ea3ac-497c-43fd-9cb7-abe34292faa8/SC22-BatchA-Blurred-Futures/Data/aryaman-conservative-100k.csv')\nposts_df = posts_df[['body', 'score']]\ndata_with_score_over_1 = posts_df[posts_df['score'] > 1]\ndata_with_score_over_1.shape","kernel":"nlp_env","output":{"0":{"name":"stderr","text":"/tmp/ipykernel_5381/3536291260.py:2: DtypeWarning: Columns (15) have mixed types. Specify dtype option on import or set low_memory=False.\n  posts_df = pd.read_csv('/projects/820ea3ac-497c-43fd-9cb7-abe34292faa8/SC22-BatchA-Blurred-Futures/Data/aryaman-conservative-100k.csv')\n"},"1":{"data":{"text/plain":"(111, 2)"},"exec_count":11}},"pos":14,"start":1655231651402,"state":"done","type":"cell"}
+{"cell_type":"code","end":1655233220375,"exec_count":37,"id":"fd1399","input":"import datetime as dt \n#from psaw import PushshiftAPI\nfrom pmaw import PushshiftAPI\n#import praw\nimport pandas as pd","kernel":"nlp_env","pos":1,"start":1655233220364,"state":"done","type":"cell"}
+{"cell_type":"code","end":1655233222662,"exec_count":38,"id":"d18530","input":"\nbefore = int(dt.datetime(2022,6,10,0,0).timestamp())\nafter = int(dt.datetime(2022,2,1,0,0).timestamp())\napi = PushshiftAPI()\nsubreddit=\"republicans\"\nlimit=1000000\nposts = api.search_comments(subreddit=subreddit, limit=limit, before=before, after=after)\nposts_df = pd.DataFrame(posts)\n","kernel":"nlp_env","pos":4,"start":1655233222621,"state":"done","type":"cell"}
+{"cell_type":"code","exec_count":0,"id":"2fdb25","input":"","pos":30,"type":"cell"}
+{"cell_type":"code","exec_count":0,"id":"6930da","input":"","pos":9,"type":"cell"}
+{"cell_type":"code","exec_count":0,"id":"91fb1b","input":"","pos":39,"type":"cell"}
+{"cell_type":"code","exec_count":0,"id":"961c18","input":"","pos":31,"type":"cell"}
+{"cell_type":"code","exec_count":0,"id":"a0abfe","input":"","pos":33,"type":"cell"}
+{"cell_type":"code","exec_count":0,"id":"b1f1b6","input":"","pos":27,"type":"cell"}
+{"cell_type":"code","exec_count":0,"id":"b559d8","input":"","pos":8,"type":"cell"}
+{"cell_type":"code","exec_count":0,"id":"bc6782","input":"","pos":35,"type":"cell"}
+{"cell_type":"code","exec_count":0,"id":"d3cf07","input":"","pos":28,"type":"cell"}
+{"cell_type":"code","exec_count":0,"id":"e926b0","input":"","pos":29,"type":"cell"}
+{"cell_type":"code","exec_count":0,"id":"f36478","input":"","pos":7,"type":"cell"}
+{"cell_type":"code","exec_count":0,"id":"f4cd64","input":"","pos":32,"type":"cell"}
+{"cell_type":"code","exec_count":12,"id":"9538f6","input":"","kernel":"nlp_env","pos":6,"state":"done","type":"cell"}
+{"cell_type":"code","exec_count":15,"id":"4e0b64","input":"posts_df['controversiality']","output":{"0":{"data":{"text/plain":"0"},"exec_count":15,"output_type":"execute_result"}},"pos":34,"type":"cell"}
+{"cell_type":"code","exec_count":17,"id":"c94c01","input":"posts_df.columns","output":{"0":{"data":{"text/plain":"Index(['all_awardings', 'archived', 'associated_award', 'author',\n       'author_flair_background_color', 'author_flair_css_class',\n       'author_flair_richtext', 'author_flair_template_id',\n       'author_flair_text', 'author_flair_text_color', 'author_flair_type',\n       'author_fullname', 'author_patreon_flair', 'author_premium', 'body',\n       'body_sha1', 'can_gild', 'collapsed', 'collapsed_because_crowd_control',\n       'collapsed_reason', 'collapsed_reason_code', 'comment_type',\n       'controversiality', 'created_utc', 'distinguished', 'gilded',\n       'gildings', 'id', 'is_submitter', 'link_id', 'locked', 'no_follow',\n       'parent_id', 'permalink', 'retrieved_utc', 'score', 'score_hidden',\n       'send_replies', 'stickied', 'subreddit', 'subreddit_id',\n       'subreddit_name_prefixed', 'subreddit_type', 'top_awarded_type',\n       'total_awards_received', 'treatment_tags', 'unrepliable_reason',\n       'author_cakeday'],\n      dtype='object')"},"exec_count":17,"output_type":"execute_result"}},"pos":10,"type":"cell"}
+{"cell_type":"code","exec_count":34,"id":"27ffe2","input":"import matplotlib.pyplot as plt \n\nplt.hist(posts_df['score'],bins=100)\nplt.show()","output":{"0":{"data":{"image/png":"99d49befc818bb0abfd838ebde556156008015be","text/plain":"<Figure size 432x288 with 1 Axes>"},"exec_count":34,"metadata":{"needs_background":"light"},"output_type":"execute_result"}},"pos":26,"type":"cell"}
+{"cell_type":"code","exec_count":36,"id":"39180a","input":"posts_df[posts_df['score']>5].shape","output":{"0":{"data":{"text/plain":"(14, 49)"},"exec_count":36,"output_type":"execute_result"}},"pos":25,"scrolled":true,"type":"cell"}
+{"cell_type":"code","exec_count":37,"id":"d60026","input":"pwd","output":{"0":{"data":{"text/plain":"'/projects/d33fe5ca-9047-433d-bb1f-d4d7dfb115ca/SC22-BatchA-Blurred-Futures'"},"exec_count":37,"output_type":"execute_result"}},"pos":36,"type":"cell"}
+{"cell_type":"code","exec_count":38,"id":"1fd429","input":"path='/projects/d33fe5ca-9047-433d-bb1f-d4d7dfb115ca/SC22-BatchA-Blurred-Futures/Data/'","pos":37,"type":"cell"}
+{"cell_type":"code","exec_count":39,"id":"05d65b","input":"posts_df.to_csv(path+'aryaman-conservative-100k.csv')","pos":38,"type":"cell"}
+{"cell_type":"code","exec_count":41,"id":"2fac08","input":"posts_df.score.value_counts()","output":{"0":{"data":{"text/plain":" 1     99860\n 2        52\n 3        25\n 0        16\n 4        14\n 5         6\n-1         6\n 6         5\n 7         3\n-5         3\n-2         2\n 9         2\n 25        1\n 19        1\n 12        1\n 11        1\n-11        1\n-7         1\nName: score, dtype: int64"},"exec_count":41,"output_type":"execute_result"}},"pos":13,"type":"cell"}
+{"end":1655233057683,"exec_count":34,"id":"153410","input":"posts_df.shape","kernel":"nlp_env","output":{"0":{"data":{"text/plain":"(0, 0)"},"exec_count":34}},"pos":4.015625,"start":1655233057675,"state":"done","type":"cell"}
+{"exec_count":29,"id":"df0fca","input":"","kernel":"nlp_env","output":{"0":{"data":{"text/html":"<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n    </tr>\n  </thead>\n  <tbody>\n  </tbody>\n</table>\n</div>","text/plain":"Empty DataFrame\nColumns: []\nIndex: []"},"exec_count":29}},"pos":4.0625,"state":"done","type":"cell"}
+{"id":"13cf9c","input":"","pos":18,"type":"cell"}
+{"id":"24f60d","input":"","pos":22,"type":"cell"}
+{"id":"2a9182","input":"","pos":4.25,"type":"cell"}
+{"id":"2aa74b","input":"","pos":4.03125,"type":"cell"}
+{"id":"31dfd9","input":"","pos":4.125,"type":"cell"}
+{"id":"3e6b6e","input":"","pos":21,"type":"cell"}
+{"id":"57438c","input":"","pos":16,"type":"cell"}
+{"id":"5be19e","input":"\nconse_data = posts_df[['body','score']]\nconse_data.to_csv('/projects/820ea3ac-497c-43fd-9cb7-abe34292faa8/SC22-BatchA-Blurred-Futures/Data/aryaman-1million-conservative.csv')","pos":5,"type":"cell"}
+{"id":"690b10","input":"","pos":24,"type":"cell"}
+{"id":"7a4f8e","input":"","pos":12,"type":"cell"}
+{"id":"922610","input":"","pos":15,"type":"cell"}
+{"id":"a3b57e","input":"","pos":19,"type":"cell"}
+{"id":"b70f90","input":"","pos":0,"type":"cell"}
+{"id":"b7264d","input":"","pos":4.5,"type":"cell"}
+{"id":"be5b2d","input":"","pos":20,"type":"cell"}
+{"id":"c66e48","input":"","pos":23,"type":"cell"}
+{"id":"db4a73","input":"","pos":17,"type":"cell"}
+{"id":"e77cb0","input":"","pos":4.0078125,"type":"cell"}
+{"id":0,"time":1655231491978,"type":"user"}
+{"last_load":1655230558010,"type":"file"}
