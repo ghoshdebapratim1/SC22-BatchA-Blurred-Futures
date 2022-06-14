@@ -5,12 +5,12 @@
 {"cell_type":"code","end":1655148722474,"exec_count":36,"id":"39180a","input":"posts_df[posts_df['score']>5].shape","kernel":"nlp_env","output":{"0":{"data":{"text/plain":"(14, 49)"},"exec_count":36}},"pos":3,"scrolled":true,"start":1655148722466,"state":"done","type":"cell"}
 {"cell_type":"code","end":1655148862318,"exec_count":39,"id":"05d65b","input":"posts_df.to_csv(path+'aryaman-conservative-100k.csv')","kernel":"nlp_env","pos":5,"start":1655148860513,"state":"done","type":"cell"}
 {"cell_type":"code","exec_count":15,"id":"4e0b64","input":"posts_df['controversiality']","kernel":"nlp_env","output":{"0":{"data":{"text/plain":"0"},"exec_count":15}},"pos":4,"state":"done","type":"cell"}
-{"end":1655148621087,"exec_count":31,"id":"e55726","input":"posts_df['score'].unique()","kernel":"nlp_env","output":{"0":{"data":{"text/plain":"array([  1,   2,   3,   4,   0,   5,  -1,   6,   9,  12,   7,  -5, -11,\n        11,  -2,  19,  25,  -7])"},"exec_count":31}},"pos":2.5,"start":1655148621078,"state":"done","type":"cell"}
 {"end":1655148692724,"exec_count":34,"id":"27ffe2","input":"import matplotlib.pyplot as plt \n\nplt.hist(posts_df['score'],bins=100)\nplt.show()","kernel":"nlp_env","output":{"0":{"data":{"image/png":"99d49befc818bb0abfd838ebde556156008015be","text/plain":"<Figure size 432x288 with 1 Axes>"},"metadata":{"needs_background":"light"}}},"pos":3.00390625,"start":1655148692487,"state":"done","type":"cell"}
 {"end":1655148831518,"exec_count":37,"id":"d60026","input":"pwd","kernel":"nlp_env","output":{"0":{"data":{"text/plain":"'/projects/d33fe5ca-9047-433d-bb1f-d4d7dfb115ca/SC22-BatchA-Blurred-Futures'"},"exec_count":37}},"pos":4.5,"start":1655148831509,"state":"done","type":"cell"}
 {"end":1655148850880,"exec_count":38,"id":"1fd429","input":"path='/projects/d33fe5ca-9047-433d-bb1f-d4d7dfb115ca/SC22-BatchA-Blurred-Futures/Data/'","kernel":"nlp_env","pos":4.75,"start":1655148850874,"state":"done","type":"cell"}
+{"end":1655156718527,"exec_count":40,"id":"e55726","input":"posts_df['score'].unique()","kernel":"nlp_env","output":{"0":{"data":{"text/plain":"array([  1,   2,   3,   4,   0,   5,  -1,   6,   9,  12,   7,  -5, -11,\n        11,  -2,  19,  25,  -7])"},"exec_count":40}},"pos":2.5,"start":1655156718523,"state":"done","type":"cell"}
+{"end":1655156781166,"exec_count":41,"id":"2fac08","input":"posts_df.score.value_counts()","kernel":"nlp_env","output":{"0":{"data":{"text/plain":" 1     99860\n 2        52\n 3        25\n 0        16\n 4        14\n 5         6\n-1         6\n 6         5\n 7         3\n-5         3\n-2         2\n 9         2\n 25        1\n 19        1\n 12        1\n 11        1\n-11        1\n-7         1\nName: score, dtype: int64"},"exec_count":41}},"pos":2.25,"start":1655156781163,"state":"done","type":"cell"}
 {"id":"09bac9","input":"","pos":2.125,"type":"cell"}
-{"id":"2fac08","input":"","pos":2.25,"type":"cell"}
 {"id":"2fdb25","input":"","pos":3.0625,"type":"cell"}
 {"id":"6930da","input":"","pos":1.5,"type":"cell"}
 {"id":"87ab32","input":"","pos":0.5,"type":"cell"}
@@ -25,5 +25,5 @@
 {"id":"e926b0","input":"","pos":3.03125,"type":"cell"}
 {"id":"f36478","input":"","pos":1.125,"type":"cell"}
 {"id":"f4cd64","input":"","pos":3.25,"type":"cell"}
-{"id":0,"time":1655146028819,"type":"user"}
+{"id":0,"time":1655160735062,"type":"user"}
 {"last_load":1655144398072,"type":"file"}
