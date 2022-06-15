@@ -1,0 +1,15 @@
+{"backend_state":"running","connection_file":"/projects/820ea3ac-497c-43fd-9cb7-abe34292faa8/.local/share/jupyter/runtime/kernel-888acb4a-5905-413a-ab63-2cebe512e644.json","kernel":"nlp_env","kernel_error":"","kernel_state":"idle","trust":true,"type":"settings"}
+{"exec_count":10,"id":"4151a0","input":"import pandas as pd\n# add all data into 1 big dataset\njoanne_dataset = pd.read_csv('/projects/820ea3ac-497c-43fd-9cb7-abe34292faa8/SC22-BatchA-Blurred-Futures/Data/joanne_liberals_6months.csv')\npeter_dataset = pd.read_csv('/projects/820ea3ac-497c-43fd-9cb7-abe34292faa8/SC22-BatchA-Blurred-Futures/Data/peter-democrats-6months.csv')","kernel":"nlp_env","output":{"0":{"name":"stderr","text":"/tmp/ipykernel_6778/2790967117.py:4: DtypeWarning: Columns (4,6,9,39,41,42,43,47) have mixed types. Specify dtype option on import or set low_memory=False.\n  peter_dataset = pd.read_csv('/projects/820ea3ac-497c-43fd-9cb7-abe34292faa8/SC22-BatchA-Blurred-Futures/Data/peter-democrats-6months.csv')\n"}},"pos":0,"state":"done","type":"cell"}
+{"exec_count":17,"id":"d65d39","input":"joanne_dataset = joanne_dataset[joanne_dataset['score'] > 0]\npeter_dataset = peter_dataset[peter_dataset['score'] > 0]\npeter_dataset = pet","kernel":"nlp_env","output":{"0":{"data":{"text/plain":"(81613, 52)"},"exec_count":17}},"pos":0.015625,"state":"done","type":"cell"}
+{"exec_count":8,"id":"31d56a","input":"","kernel":"nlp_env","output":{"0":{"data":{"text/plain":"'/projects/820ea3ac-497c-43fd-9cb7-abe34292faa8/SC22-BatchA-Blurred-Futures/Team 1 - Liberal'"},"exec_count":8}},"pos":0.25,"state":"done","type":"cell"}
+{"id":"57eba1","input":"","pos":0.0234375,"type":"cell"}
+{"id":"5afd18","input":"","pos":0.03125,"type":"cell"}
+{"id":"6b6450","input":"","pos":0.01953125,"type":"cell"}
+{"id":"71a0dd","input":"","pos":0.125,"type":"cell"}
+{"id":"7cd6f5","input":"","pos":0.0625,"type":"cell"}
+{"id":"7e85a4","input":"","pos":0.5,"type":"cell"}
+{"id":"af59bd","input":"","kernel":"nlp_env","pos":1,"type":"cell"}
+{"id":"c44783","input":"","pos":2,"type":"cell"}
+{"id":"db51fa","input":"","pos":0.375,"type":"cell"}
+{"id":0,"time":1655242197102,"type":"user"}
+{"last_load":1655241964473,"type":"file"}
